@@ -44,8 +44,25 @@
                 background: rgb(240, 240, 240);
             }
         </style>
+        <script type="text/javascript">
+            function OnLoad(){
+                document.addEventListener('deviceready', function(){
+                    //enabling zoom control
+                    cordova.plugins.ZoomControl.ZoomControl("true");
+                    // enabling built in zoom control
+                    cordova.plugins.ZoomControl.setBuiltInZoomControls("true");
+                    // enabling display zoom control
+                    cordova.plugins.ZoomControl.setDisplayZoomControls("true");
+
+                }, function(){
+                    alert('error deviceready');
+                });
+
+            }
+        </script>
+
     </head>
-    <body>
+    <body onload="OnLoad();">
         <div class="center-text animate pulse">
             Connecting to Server
         </div>
@@ -55,6 +72,7 @@
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript">
+
             app.initialize();
         </script>
     </body>
